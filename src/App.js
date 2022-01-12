@@ -8,18 +8,18 @@ class App extends Component {
   state = {
     timerIDs: []
   }
-
-
   //Your code here:
+componentDidMount(){
+  this.handleAddTimer = setInterval(()=>{
+    this.setState(prevState => ({
+      count: this.state.count + prevState.count + 1
+    }))
+  }, 1000)
+}
 
-
-
-
-
-
-
-
-
+componentWillUnmount(){
+  clearInterval(this.myInterval)
+}
   // No need to modify anything in render or the class methods below
   // Unless, of course, you're curious about how it all works
   render() {
